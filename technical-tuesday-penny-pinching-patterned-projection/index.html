@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Technical Tuesday: Penny-Pinching Patterned Projection · Lab on the Cheap</title>
+<link rel="stylesheet" href="/assets/style.css"></head>
+<body>
+<header class="site"><div class="wrap">
+<a class="brand" href="/">Lab on the Cheap</a>
+<div class="tools"><input id="q" type="search" placeholder="Search posts…" autocomplete="off"><button id="rand" type="button">Random post</button></div>
+</div></header>
+<main class="wrap"><article class="post"><a class="back" href="/">← All posts</a>
+<h1>Technical Tuesday: Penny-Pinching Patterned Projection</h1><time>July 3, 2018</time><img class="feat" src="/images/2018/07/Texas_Instruments_DLP_digital_micromirror_device.jpg" alt="">
+<div class="content"><div>Today is <a href="http://www.labonthecheap.com/index.php/category/technical-tuesday/">Technical Tuesday</a>! A long delayed segment where we try to dive a little deeper into the actual costs involved in particular scientific techniques. We hope to show where you can save money, and what you might lose by saving that money. Today's topic is dynamically patterning light with Digitial Micromirror Devices.</div>
+&nbsp;
+<div>With the advent of opto-genetics, spatial and temporal patterning of light is becoming more common in labs. One option to facilitate this sort of control is a <a href="https://en.wikipedia.org/wiki/Spatial_light_modulator">Spatial Light Modulator </a>which uses reflective liquid crystals to imprint a hologram on the incoming laser beam. This&nbsp; allows you to project patterns that are diffraction limited (woah precision). The downside is that this will run you <a href="https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=10378">~$20K</a>&nbsp;and requires a laser. If you want to DIY this kind of setup, you'll need to create a program to calculate the inverse Fourier transform of the image you want to project on the fly. It's interesting, but mostly for researchers that are working with holographic optical traps or really need that diffraction limited precision.</div>
+&nbsp;
+<div>
+<div class="embed"><iframe src="https://www.youtube.com/embed/zxNvs4tZdwU" frameborder="0" allowfullscreen></iframe></div>
+</div>
+&nbsp;
+<div>This brings us to our penny-pinching patterned projection proposal. A less complex option is a <a href="https://en.wikipedia.org/wiki/Digital_micromirror_device">Digitial Micromirror Device</a> (DMD). DMDs were invented in <a href="http://e2e.ti.com/blogs_/b/enlightened/archive/2016/10/06/the-pioneering-work-that-led-to-the-dmd">1987 at Texas Instruments</a> as a way to set up a projector--essentially it's a bunch of microscopic mirrors where each mirror acts as a pixel in your projected image.&nbsp; These things are also sometimes referred to as Digital Light Processors (DLPs) which is the trademarked name of the Texas Instrument product. You can do this in many colors by having different light sources or filters. They are found in LOTS of projectors these days--most movie theaters use them because they give a sharper and brighter image than a usual LCD projector. I recommend watching&nbsp;this series of <a href="https://www.youtube.com/watch?v=N4aUU3-PKQ4">youtube videos</a>&nbsp;if you are interested in the details of operation.</div>
+&nbsp;
+<div><strong>Commercial:&nbsp;</strong>You can buy a commercial DMD set up from Andor (the <a href="http://www.andor.com/microscopy-systems/photostimulation/mosaic">Mosaic</a>) or from Mightex (the <a href="https://www.mightexsystems.com/family_info.php?cPath=258&amp;categories_id=258">Polygon400</a>). Like the SLM, these will run you $10-20K for just the device and much more if you want it hooked up with your current microscope system. The benefit of these commercial systems is the support provided by the big companies--Andor and Nikon respectively. The Polygon400 with Nikon Elements and is nice and fairly intuitive to use. However, the standard system does not allow you to update the image projected during data acquisition and doesn't seem THAT much easier than the options listed below.</div>
+&nbsp;
+<div><strong>Semi-DIY:&nbsp;</strong>If you want a little more control for a little more work, you can buy a DLP from <a href="http://www.ti.com/dlp-chip/display-and-projection/overview.html">Texas Instruments</a> or <a href="https://www.dlinnovations.com/">some other companies</a>&nbsp;for $100-$1000. These you will have to align yourself but they come with (or you can buy) control board so that you can control the instrument through Python or other computer programs. This indeed works as people have used it in <a href="http://www.jneurosci.org/content/37/5/1102#sec-2">previous works</a>. For both these and the commercially available options, you do not need collimated light so your LED or mercury lamp should work just fine.</div>
+&nbsp;
+<div><strong>More DIY: </strong>Finally you can literally hook a projector up to your microscope. Or<a href="https://aapt.scitation.org/doi/10.1119/1.4935806"> build a microscope around a projector as is done by our friends in the Fraden lab in&nbsp;</a><a href="https://aapt.scitation.org/doi/10.1119/1.4935806">this paper</a>.</div>
+<div><a href="/images/2018/06/Capture.png"><img class="size-full wp-image-1150 aligncenter" src="/images/2018/06/Capture.png" alt="" width="670" height="506"></a></div>
+&nbsp;
+<div>The major drawback to this system is that the power going into each pixel is super not uniform from a projector. In fact the one we have worked with has its power vary across the projection as a sigmoid. You can do things to attempt to correct this like change on-off time for each pixel, but it will be a struggle to get even illumination.</div>
+&nbsp;
+<div>Thanks a lot to Tyler Ross and Ian Hunter for most of the information in this post. And&nbsp;if you have thoughts, suggestions or corrections--please let us know.</div></div></article></main>
+<footer class="site"><div class="wrap">Lab on the Cheap · archived static copy</div></footer>
+<script src="/assets/app.js"></script>
+</body></html>
